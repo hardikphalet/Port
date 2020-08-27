@@ -128,13 +128,100 @@ public class Resources extends JFrame{
         panel1.add(reset, gbc);
 
         tabbedPane.addTab("Checking", null, panel1,"Check reservation");
-        
-
 
 
         panel2 = new JPanel(false);
         panel2.setLayout(new GridBagLayout());
+        GridBagConstraints _gbc = new GridBagConstraints();
+        if (shouldFill) {
+            //natural height, maximum width
+            _gbc.fill = GridBagConstraints.HORIZONTAL;
+        }
+
+        window1 = new JLabel("Ticket No.: ");
+        _gbc.fill = GridBagConstraints.HORIZONTAL;
+        _gbc.gridx = 0;
+        _gbc.gridy = 0;
+        panel2.add(window1, _gbc);
+
+        window2 = new JLabel("Name: ");
+        _gbc.fill = GridBagConstraints.HORIZONTAL;
+        _gbc.gridx = 0;
+        _gbc.gridy = 1;
+        panel2.add(window2, _gbc);
+        
+        window3 = new JLabel("To: ");
+        _gbc.fill = GridBagConstraints.HORIZONTAL;
+        _gbc.gridx = 0;
+        _gbc.gridy = 2;
+        panel2.add(window3, _gbc);
+
+        window4 = new JLabel("From: ");
+        _gbc.fill = GridBagConstraints.HORIZONTAL;
+        _gbc.gridx = 0;
+        _gbc.gridy = 3;
+        panel2.add(window4, _gbc);
+
+        // window5 = new JLabel("Date: ");
+        // _gbc.gridx = 0;
+        // _gbc.gridy = 4;
+        // panel2.add(window5, _gbc);
+
+        tNo = new JTextField(10);
+        tNo.setFont(new Font("Serif",Font.PLAIN,14));
+        _gbc.fill = GridBagConstraints.HORIZONTAL;
+        _gbc.gridwidth = 3;
+        _gbc.gridx = 1;
+        _gbc.gridy = 0;
+        panel2.add(tNo, _gbc);
+
+        name = new JTextField(10);
+        name.setFont(new Font("Serif",Font.PLAIN,14));
+        _gbc.fill = GridBagConstraints.HORIZONTAL;
+        _gbc.gridwidth = 3;
+        _gbc.gridx = 1;
+        _gbc.gridy = 1;
+        panel2.add(name, _gbc);
+
+        to = new JTextField(10);
+        to.setFont(new Font("Serif",Font.PLAIN,14));
+        _gbc.fill = GridBagConstraints.HORIZONTAL;
+        _gbc.gridwidth = 3;
+        _gbc.gridx = 1;
+        _gbc.gridy = 2;
+        panel2.add(to, _gbc);
+        
+        from = new JTextField(10);
+        from.setFont(new Font("Serif",Font.PLAIN,14));
+        _gbc.fill = GridBagConstraints.HORIZONTAL;
+        _gbc.gridwidth = 3;
+        _gbc.gridx = 1;
+        _gbc.gridy = 3;
+        panel2.add(from, _gbc);
+        
+
+        submit = new JButton("Submit");
+        _gbc.fill = GridBagConstraints.HORIZONTAL;
+        _gbc.anchor = GridBagConstraints.PAGE_END;
+        _gbc.insets = new Insets(10,10,10,0);  //top padding
+        _gbc.gridwidth = 1;
+        _gbc.weightx = 3;
+        _gbc.gridx = 1;
+        _gbc.gridy = 4;
+        panel2.add(submit, _gbc);
+
+        reset = new JButton("Reset");
+        _gbc.fill = GridBagConstraints.HORIZONTAL;
+        _gbc.anchor = GridBagConstraints.PAGE_END;
+        _gbc.insets = new Insets(10,10,10,0);  //top padding
+        _gbc.weightx = 3;
+        _gbc.gridx = 2;
+        _gbc.gridy = 4;
+        panel2.add(reset, _gbc);
+
         tabbedPane.addTab("Booking", null, panel2,"Book reservation");
+    
+
         add(tabbedPane, BorderLayout.CENTER);
     }
 
