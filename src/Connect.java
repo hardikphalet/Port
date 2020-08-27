@@ -4,6 +4,9 @@ import java.sql.*;
 
 
 public class Connect {
+    public Connect(){
+
+    }
     public static void main(String[] args) throws Exception {
         try{   
             Connection con=DriverManager.getConnection(  
@@ -17,3 +20,4 @@ public class Connect {
             }catch(Exception e){ System.out.println(e);}  
     }
 }
+

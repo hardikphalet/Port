@@ -9,16 +9,17 @@ import javax.swing.JButton;
 // import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-// import javax.swing.JOptionPane;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 // import javax.swing.JSplitPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 
-
-public class Resources extends JFrame{
+public class Resources extends JFrame {
     private static final long serialVersionUID = 1L;
     private static boolean shouldFill = true;
     private JTabbedPane tabbedPane;
@@ -44,10 +45,10 @@ public class Resources extends JFrame{
     private JTextField from_;
     private JButton submit_;
     private JButton reset_;
-    
+
     // private JLabel window5;
 
-    public Resources(){
+    public Resources() {
         super("Port");
         tabbedPane = new JTabbedPane();
 
@@ -55,7 +56,7 @@ public class Resources extends JFrame{
         panel1.setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
         if (shouldFill) {
-            //natural height, maximum width
+            // natural height, maximum width
             gbc.fill = GridBagConstraints.HORIZONTAL;
         }
 
@@ -70,7 +71,7 @@ public class Resources extends JFrame{
         gbc.gridx = 0;
         gbc.gridy = 1;
         panel1.add(window2, gbc);
-        
+
         window3 = new JLabel("To: ");
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.gridx = 0;
@@ -89,7 +90,7 @@ public class Resources extends JFrame{
         // panel1.add(window5, gbc);
 
         tNo = new JTextField(10);
-        tNo.setFont(new Font("Serif",Font.PLAIN,14));
+        tNo.setFont(new Font("Serif", Font.PLAIN, 14));
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.gridwidth = 3;
         gbc.gridx = 1;
@@ -97,7 +98,7 @@ public class Resources extends JFrame{
         panel1.add(tNo, gbc);
 
         name = new JTextField(10);
-        name.setFont(new Font("Serif",Font.PLAIN,14));
+        name.setFont(new Font("Serif", Font.PLAIN, 14));
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.gridwidth = 3;
         gbc.gridx = 1;
@@ -105,26 +106,25 @@ public class Resources extends JFrame{
         panel1.add(name, gbc);
 
         to = new JTextField(10);
-        to.setFont(new Font("Serif",Font.PLAIN,14));
+        to.setFont(new Font("Serif", Font.PLAIN, 14));
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.gridwidth = 3;
         gbc.gridx = 1;
         gbc.gridy = 2;
         panel1.add(to, gbc);
-        
+
         from = new JTextField(10);
-        from.setFont(new Font("Serif",Font.PLAIN,14));
+        from.setFont(new Font("Serif", Font.PLAIN, 14));
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.gridwidth = 3;
         gbc.gridx = 1;
         gbc.gridy = 3;
         panel1.add(from, gbc);
-        
 
         submit = new JButton("Submit");
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.anchor = GridBagConstraints.PAGE_END;
-        gbc.insets = new Insets(10,10,10,0);  //top padding
+        gbc.insets = new Insets(10, 10, 10, 0); // top padding
         gbc.gridwidth = 1;
         gbc.weightx = 3;
         gbc.gridx = 1;
@@ -134,38 +134,19 @@ public class Resources extends JFrame{
         reset = new JButton("Reset");
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.anchor = GridBagConstraints.PAGE_END;
-        gbc.insets = new Insets(10,10,10,0);  //top padding
+        gbc.insets = new Insets(10, 10, 10, 0); // top padding
         gbc.weightx = 3;
         gbc.gridx = 2;
         gbc.gridy = 4;
         panel1.add(reset, gbc);
 
-        tabbedPane.addTab("Checking", null, panel1,"Check reservation");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        tabbedPane.addTab("Checking", null, panel1, "Check reservation");
 
         panel2 = new JPanel(false);
         panel2.setLayout(new GridBagLayout());
         GridBagConstraints _gbc = new GridBagConstraints();
         if (shouldFill) {
-            //natural height, maximum width
+            // natural height, maximum width
             _gbc.fill = GridBagConstraints.HORIZONTAL;
         }
 
@@ -180,7 +161,7 @@ public class Resources extends JFrame{
         _gbc.gridx = 0;
         _gbc.gridy = 1;
         panel2.add(window2_, _gbc);
-        
+
         window3_ = new JLabel("To: ");
         _gbc.fill = GridBagConstraints.HORIZONTAL;
         _gbc.gridx = 0;
@@ -199,7 +180,7 @@ public class Resources extends JFrame{
         // panel2.add(window5, _gbc);
 
         tNo_ = new JTextField(10);
-        tNo_.setFont(new Font("Serif",Font.PLAIN,14));
+        tNo_.setFont(new Font("Serif", Font.PLAIN, 14));
         _gbc.fill = GridBagConstraints.HORIZONTAL;
         _gbc.gridwidth = 3;
         _gbc.gridx = 1;
@@ -207,7 +188,7 @@ public class Resources extends JFrame{
         panel2.add(tNo_, _gbc);
 
         name_ = new JTextField(10);
-        name_.setFont(new Font("Serif",Font.PLAIN,14));
+        name_.setFont(new Font("Serif", Font.PLAIN, 14));
         _gbc.fill = GridBagConstraints.HORIZONTAL;
         _gbc.gridwidth = 3;
         _gbc.gridx = 1;
@@ -215,26 +196,25 @@ public class Resources extends JFrame{
         panel2.add(name_, _gbc);
 
         to_ = new JTextField(10);
-        to_.setFont(new Font("Serif",Font.PLAIN,14));
+        to_.setFont(new Font("Serif", Font.PLAIN, 14));
         _gbc.fill = GridBagConstraints.HORIZONTAL;
         _gbc.gridwidth = 3;
         _gbc.gridx = 1;
         _gbc.gridy = 2;
         panel2.add(to_, _gbc);
-        
+
         from_ = new JTextField(10);
-        from_.setFont(new Font("Serif",Font.PLAIN,14));
+        from_.setFont(new Font("Serif", Font.PLAIN, 14));
         _gbc.fill = GridBagConstraints.HORIZONTAL;
         _gbc.gridwidth = 3;
         _gbc.gridx = 1;
         _gbc.gridy = 3;
         panel2.add(from_, _gbc);
-        
 
         submit_ = new JButton("Submit");
         _gbc.fill = GridBagConstraints.HORIZONTAL;
         _gbc.anchor = GridBagConstraints.PAGE_END;
-        _gbc.insets = new Insets(10,10,10,0);  //top padding
+        _gbc.insets = new Insets(10, 10, 10, 0); // top padding
         _gbc.gridwidth = 1;
         _gbc.weightx = 3;
         _gbc.gridx = 1;
@@ -244,14 +224,13 @@ public class Resources extends JFrame{
         reset_ = new JButton("Reset");
         _gbc.fill = GridBagConstraints.HORIZONTAL;
         _gbc.anchor = GridBagConstraints.PAGE_END;
-        _gbc.insets = new Insets(10,10,10,0);  //top padding
+        _gbc.insets = new Insets(10, 10, 10, 0); // top padding
         _gbc.weightx = 3;
         _gbc.gridx = 2;
         _gbc.gridy = 4;
         panel2.add(reset_, _gbc);
 
-        tabbedPane.addTab("Booking", null, panel2,"Book reservation");
-    
+        tabbedPane.addTab("Booking", null, panel2, "Book reservation");
 
         add(tabbedPane, BorderLayout.CENTER);
 
@@ -261,24 +240,35 @@ public class Resources extends JFrame{
         reset.addActionListener(handler);
         reset_.addActionListener(handler);
 
-
     }
 
+    private class HandlerClass implements ActionListener {
+        public void actionPerformed(ActionEvent event) {
+            ResultSet _rs;
+            if (event.getSource() == submit || event.getSource() == reset) {
+                if (event.getSource() == submit) {
+                    String aaa = null;
+                    String t = tNo.getText();
+                    String n = name.getText();
+                    String tow = to.getText();
+                    String fro = from.getText();
+                    String[] stat = { t, n, tow, fro };
+                    Checking check = new Checking(stat);
 
+                    _rs = check.find(stat);
 
-
-
-
-
-
-private class HandlerClass implements ActionListener{
-    public void actionPerformed(ActionEvent event){
-        if (event.getSource() == submit){
-            ;
+                    try {
+                        aaa = Ender.ender(_rs);
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                    JOptionPane.showMessageDialog(panel1, aaa);
+            }
+            else if (event.getSource()==reset){
+                ;
+            }
         }
-        else if (event.getSource()==reset){
-            ;
-        }
+        
         else if (event.getSource()==submit_){
             ;
         }
