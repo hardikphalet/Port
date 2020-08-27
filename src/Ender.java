@@ -1,8 +1,6 @@
 import java.sql.*;
 
 class Ender {
-    private ResultSet ans;
-
     public static String ender(ResultSet ans) throws SQLException {
         String loong=null;
         
