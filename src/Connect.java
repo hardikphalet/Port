@@ -10,7 +10,7 @@ public class Connect {
     public static void main(String[] args) throws Exception {
         try{   
             Connection con=DriverManager.getConnection(  
-            "jdbc:mysql://localhost:3306/java","root","K@n@k2006");  
+            "jdbc:mysql://localhost:3306/java","root","root");  
             //here sonoo is database name, root is username and password  
             Statement stmt=con.createStatement();  
             ResultSet rs=stmt.executeQuery("select * from emp");  
