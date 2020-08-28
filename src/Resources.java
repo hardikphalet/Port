@@ -253,27 +253,45 @@ public class Resources extends JFrame {
                     String tow = to.getText();
                     String fro = from.getText();
                     String[] stat = { t, n, tow, fro };
+
                     Checking check = new Checking(stat);
-
                     _rs = check.find(stat);
-
                     try {
                         aaa = Ender.ender(_rs);
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }
-                    JOptionPane.showMessageDialog(panel1, aaa);
+                    System.out.println(aaa);
+                    JOptionPane.showMessageDialog(null, aaa);
             }
             else if (event.getSource()==reset){
-                ;
+                tNo.setText("");
+                name.setText("");
+                to.setText("");
+                from.setText("");
             }
         }
         
         else if (event.getSource()==submit_){
-            ;
+            String t = tNo_.getText();
+            String n = name_.getText();
+            String tow = to_.getText();
+            String fro = from_.getText();
+            String rquery = String.format("Insert into bookings Values(%s,'%s','%s','%s')",t,n,tow,fro);
+            Reservation.book(rquery);
+
+            JOptionPane.showMessageDialog(null, "Done!");
+            tNo_.setText("");
+            name_.setText("");
+            to_.setText("");
+            from_.setText("");
+
         }
         else if (event.getSource()==reset_){
-            ;
+            tNo_.setText("");
+            name_.setText("");
+            to_.setText("");
+            from_.setText("");
         }
     }
 }
