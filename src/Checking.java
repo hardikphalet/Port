@@ -19,7 +19,7 @@ public class Checking extends JFrame{
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");  
             Connection con = DriverManager.getConnection(
-            "jdbc:mysql://root@localhost:3306/java","root", "K@n@k2006");
+            "jdbc:mysql://root@localhost:3306/java","root", "root");
             Statement stmt = con.createStatement();
             ResultSet rs;
             if (!obj.q[0].equals("")){
